@@ -1,4 +1,4 @@
-# [/videos] <br>
+# Videos
 
 * [Diagrama Entidade Relacionamento](https://www.youtube.com/watch?v=Yz40xfg-Gi8&list=PLvT8P1q6jMWfdK6v25Sjhq3qwxLIAnvtk&pp=gAQB)
 
