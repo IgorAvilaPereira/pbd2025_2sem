@@ -8,3 +8,4 @@
 [sql1.pdf](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./00_guia_rapido/sql1.pdf) <br>
 [sql2.pdf](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./00_guia_rapido/sql2.pdf) <br>
 [transformacao-er-modelo-relacional.pdf](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./00_guia_rapido/transformacao-er-modelo-relacional.pdf) <br>
+[videos.md](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./00_guia_rapido/videos.md) <br>
