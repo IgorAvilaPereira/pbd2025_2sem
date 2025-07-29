@@ -11,3 +11,5 @@
 [transformacao-er-modelo-relacional.pdf](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./00_guia_rapido/transformacao-er-modelo-relacional.pdf) <br>
 [trigger.pdf](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./00_guia_rapido/trigger.pdf) <br>
 [videos.md](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./00_guia_rapido/videos.md) <br>
+## [./01_introducao](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./01_introducao) <br>
+[stored_procedure.pdf](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./01_introducao/stored_procedure.pdf) <br>
