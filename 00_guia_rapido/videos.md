@@ -34,6 +34,27 @@
 
     * [(Aula 8) - Iterando Tupla por Tupla por Meio de Comandos FOR (Loop PARA)](https://www.youtube.com/watch?v=anAC9R2M0i4&list=PLHCyLhqWSaHDHOCJycIf4FHSU6-IMCxu)
 
+ ***
+
+## Python/Flask/Psycopg
+
+* [Todos os vídeos](https://youtube.com/playlist?list=PLvT8P1q6jMWeVihLzRF3Do1gfGKL8xOtZ)
+
+* [Psycopg](https://youtube.com/playlist?list=PLvT8P1q6jMWc0e1WirbTG-2dWkzbrF4lV)
+
+* [Psycopg + Flask](https://youtube.com/playlist?list=PLvT8P1q6jMWdfi2Od79tZ2zLdS5DTiwVU)
+
+* [Orientação a Objetos com Python (Modo Express)](https://youtube.com/playlist?list=PLvT8P1q6jMWfibTv2uxyDSrMCmjxhXcRz)
+
+* [Trabalhando com Arquivo de Texto em Python](https://youtube.com/playlist?list=PLvT8P1q6jMWdw_9EW4JK36NUDqz4U-uKt)
+
+* [Flask-SQLAlchemy](https://youtube.com/playlist?list=PLvT8P1q6jMWfU2XuNBcA-81TE-CaBEM4n)
+
+* [Flask-Extensions](https://youtube.com/playlist?list=PLvT8P1q6jMWe2c2T0R3RthPyQELWWJtcz)
+
+* [Python/Tkinter](https://youtube.com/playlist?list=PLvT8P1q6jMWfdjqCvnHsTCKxofVBNBZyD)
+
+
     * [(Aula 9) - Arrays (Vetores) em PostgreSQL - Declaração, Atribuição e Exemplos](https://www.youtube.com/watch?v=FFZq_YFqHcY&list=PLHCyLhqWSaHDHOCJycIf4FHSU6-IMCxuN)
 
   * **Triggers:**
