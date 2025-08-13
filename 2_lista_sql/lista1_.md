@@ -359,3 +359,320 @@ END;
 $$ LANGUAGE plpgsql;
 ```-->
 
+Aqui está o **gabarito completo em PL/pgSQL** para os exercícios adicionais (11 a 25). Cada bloco contém o código da função ou procedure com comentários explicativos:
+
+---
+
+### 11. Cadastrar novo cliente com validação de CPF
+
+<!--```sql
+CREATE OR REPLACE FUNCTION cadastrar_cliente(
+  p_cpf       VARCHAR,
+  p_nome      VARCHAR,
+  p_email     VARCHAR
+) RETURNS VOID AS $$
+BEGIN
+  IF EXISTS (SELECT 1 FROM clientes WHERE cpf = p_cpf) THEN
+    RAISE EXCEPTION 'CPF % já cadastrado', p_cpf;
+  END IF;
+  
+  INSERT INTO clientes(cpf, nome, email)
+  VALUES (p_cpf, p_nome, p_email);
+END;
+$$ LANGUAGE plpgsql;
+```-->
+
+---
+
+### 12. Verificar ocupação de uma sessão
+
+<!--```sql
+CREATE OR REPLACE FUNCTION ocupacao_sessao(p_sessao_id INT) 
+RETURNS NUMERIC AS $$
+DECLARE
+  vendidos INT;
+  total INT;
+BEGIN
+  SELECT COUNT(*) INTO vendidos FROM ingressos WHERE sessao_id = p_sessao_id;
+  SELECT capacidade INTO total FROM salas
+    JOIN sessoes USING (sala_id)
+    WHERE sessao_id = p_sessao_id;
+  
+  RETURN ROUND((vendidos::NUMERIC / total) * 100, 2);
+END;
+$$ LANGUAGE plpgsql;
+```-->
+
+---
+
+### 13. Transferir sessão para outra sala
+
+<!--```sql
+CREATE OR REPLACE PROCEDURE transferir_sessao(
+  p_sessao_id INT,
+  p_nova_sala INT
+) AS $$
+DECLARE
+  existe_conflito BOOLEAN;
+BEGIN
+  SELECT EXISTS (
+    SELECT 1 FROM sessoes
+    WHERE sala_id = p_nova_sala
+      AND datahora = (SELECT datahora FROM sessoes WHERE sessao_id = p_sessao_id)
+      AND sessao_id <> p_sessao_id
+  ) INTO existe_conflito;
+  
+  IF existe_conflito THEN
+    RAISE EXCEPTION 'Conflito: já existe sessão na sala % neste horário', p_nova_sala;
+  END IF;
+  
+  UPDATE sessoes
+  SET sala_id = p_nova_sala
+  WHERE sessao_id = p_sessao_id;
+END;
+$$ LANGUAGE plpgsql;
+```-->
+
+---
+
+### 14. Buscar filmes por diretor
+
+<!--```sql
+CREATE OR REPLACE FUNCTION filmes_por_diretor(p_nome VARCHAR)
+RETURNS TABLE(filme_id INT, titulo VARCHAR) AS $$
+BEGIN
+  RETURN QUERY
+    SELECT f.filme_id, f.titulo
+    FROM filmes f
+    JOIN filme_diretor fd USING (filme_id)
+    JOIN diretores d USING (diretor_id)
+    WHERE d.nome ILIKE '%' || p_nome || '%';
+END;
+$$ LANGUAGE plpgsql;
+```-->
+
+---
+
+### 15. Listar filmes com gênero específico
+
+<!--```sql
+CREATE OR REPLACE FUNCTION filmes_por_genero(p_genero VARCHAR)
+RETURNS TABLE(filme_id INT, titulo VARCHAR) AS $$
+BEGIN
+  RETURN QUERY
+    SELECT f.filme_id, f.titulo
+    FROM filmes f
+    JOIN filme_genero fg USING (filme_id)
+    JOIN generos g USING (genero_id)
+    WHERE g.nome ILIKE '%' || p_genero || '%';
+END;
+$$ LANGUAGE plpgsql;
+```-->
+
+---
+
+### 16. Top 5 filmes mais lucrativos
+
+<!--```sql
+CREATE OR REPLACE FUNCTION top5_filmes_lucrativos()
+RETURNS TABLE(filme_id INT, titulo VARCHAR, arrecadacao NUMERIC) AS $$
+BEGIN
+  RETURN QUERY
+    SELECT f.filme_id, f.titulo, SUM(i.valor) AS arrecadacao
+    FROM filmes f
+    JOIN sessoes s USING (filme_id)
+    JOIN ingressos i USING (sessao_id)
+    GROUP BY f.filme_id, f.titulo
+    ORDER BY arrecadacao DESC
+    LIMIT 5;
+END;
+$$ LANGUAGE plpgsql;
+```-->
+---
+
+### 17. Calcular média de ocupação por sala
+
+<!--```sql
+CREATE OR REPLACE FUNCTION media_ocupacao_por_sala()
+RETURNS TABLE(sala_id INT, porcentagem NUMERIC) AS $$
+BEGIN
+  RETURN QUERY
+    SELECT s.sala_id,
+           ROUND((SUM(i.qtd_vendida)::NUMERIC / (COUNT(*) * s.capacidade)) * 100,2)
+      AS porcentagem
+    FROM sessoes sess
+    JOIN salas s USING (sala_id)
+    LEFT JOIN (
+      SELECT sessao_id, COUNT(*) AS qtd_vendida
+      FROM ingressos GROUP BY sessao_id
+    ) i USING (sessao_id)
+    GROUP BY s.sala_id, s.capacidade;
+END;
+$$ LANGUAGE plpgsql;
+```-->
+
+---
+
+### 18. Atualizar classificação etária de um filme
+
+<!--```sql
+CREATE OR REPLACE PROCEDURE atualizar_classificacao(
+  p_filme_id INT,
+  p_nova_classificacao INT
+) AS $$
+BEGIN
+  UPDATE filmes
+  SET classificacao = p_nova_classificacao
+  WHERE filme_id = p_filme_id;
+END;
+$$ LANGUAGE plpgsql;
+```-->
+
+---
+
+### 19. Relatório de vendas por cliente
+
+<!--```sql
+CREATE OR REPLACE FUNCTION relatorio_vendas_cliente(p_cpf VARCHAR)
+RETURNS TABLE(filme_id INT, titulo VARCHAR, total_compras NUMERIC) AS $$
+BEGIN
+  RETURN QUERY
+    SELECT f.filme_id, f.titulo, SUM(i.valor)
+    FROM ingressos i
+    JOIN sessoes s USING (sessao_id)
+    JOIN filmes f USING (filme_id)
+    WHERE i.cpf = p_cpf
+    GROUP BY f.filme_id, f.titulo;
+END;
+$$ LANGUAGE plpgsql;
+```-->
+
+---
+
+### 20. Buscar sessões disponíveis por horário
+
+<!--```sql
+CREATE OR REPLACE FUNCTION sessoes_disponiveis_intervalo(
+  p_inicio TIMESTAMP,
+  p_fim    TIMESTAMP
+)
+RETURNS TABLE(sessao_id INT, filme VARCHAR, livres INT) AS $$
+BEGIN
+  RETURN QUERY
+    SELECT s.sessao_id, f.titulo,
+           (s.capacidade - COALESCE(cnt, 0)) AS livres
+    FROM sessoes s
+    JOIN filmes f USING (filme_id)
+    LEFT JOIN (
+      SELECT sessao_id, COUNT(*) AS cnt
+      FROM ingressos GROUP BY sessao_id
+    ) i USING (sessao_id)
+    WHERE s.datahora BETWEEN p_inicio AND p_fim
+      AND (s.capacidade - COALESCE(cnt,0)) > 0;
+END;
+$$ LANGUAGE plpgsql;
+```-->
+
+---
+
+### 21. Excluir filme com validação
+
+<!--```sql
+CREATE OR REPLACE PROCEDURE excluir_filme(p_filme_id INT) AS $$
+BEGIN
+  IF EXISTS (SELECT 1 FROM sessoes WHERE filme_id = p_filme_id) THEN
+    RAISE EXCEPTION 'Não é possível excluir: sessões associadas';
+  END IF;
+  
+  DELETE FROM filmes WHERE filme_id = p_filme_id;
+END;
+$$ LANGUAGE plpgsql;
+```-->
+
+---
+
+### 22. Reagendar sessão
+
+<!--```sql
+CREATE OR REPLACE PROCEDURE reagendar_sessao(
+  p_sessao_id   INT,
+  p_nova_datahora TIMESTAMP
+) AS $$
+DECLARE
+  existe_conflito BOOLEAN;
+BEGIN
+  SELECT EXISTS (
+    SELECT 1 FROM sessoes
+    WHERE sala_id = (SELECT sala_id FROM sessoes WHERE sessao_id = p_sessao_id)
+      AND datahora = p_nova_datahora
+      AND sessao_id <> p_sessao_id
+  ) INTO existe_conflito;
+  
+  IF existe_conflito THEN
+    RAISE EXCEPTION 'Conflito na mesma sala e horário';
+  END IF;
+  
+  UPDATE sessoes
+  SET datahora = p_nova_datahora
+  WHERE sessao_id = p_sessao_id;
+END;
+$$ LANGUAGE plpgsql;
+```-->
+
+---
+
+### 23. Gerar relatório mensal de ingressos vendidos
+
+<!--```sql
+CREATE OR REPLACE FUNCTION relatorio_mensal(mes INT, ano INT)
+RETURNS TABLE(filme_id INT, titulo VARCHAR, quantidade INT) AS $$
+BEGIN
+  RETURN QUERY
+    SELECT f.filme_id, f.titulo, COUNT(i.ingresso_id)
+    FROM ingressos i
+    JOIN sessoes s USING (sessao_id)
+    JOIN filmes f USING (filme_id)
+    WHERE EXTRACT(MONTH FROM i.data_compra) = mes
+      AND EXTRACT(YEAR FROM i.data_compra) = ano
+    GROUP BY f.filme_id, f.titulo;
+END;
+$$ LANGUAGE plpgsql;
+```-->
+
+---
+
+### 24. Verificar poltrona VIP disponível
+
+<!--```sql
+CREATE OR REPLACE FUNCTION vip_disponiveis(p_sessao_id INT)
+RETURNS TABLE(poltrona VARCHAR) AS $$
+BEGIN
+  RETURN QUERY
+    SELECT p.poltrona
+    FROM poltronas p
+    LEFT JOIN ingressos i
+      ON p.sessao_id = p_sessao_id AND p.poltrona = i.poltrona
+    WHERE p.tipo = 'VIP'
+      AND i.ingresso_id IS NULL;
+END;
+$$ LANGUAGE plpgsql;
+```-->
+
+---
+
+### 25. Cancelar sessão com notificação (log)
+
+<!--```sql
+CREATE OR REPLACE PROCEDURE cancelar_sessao_com_log(p_sessao_id INT, p_usuario VARCHAR) AS $$
+BEGIN
+  INSERT INTO sessao_logs(sessao_id, operacao, datahora, usuario)
+  VALUES (p_sessao_id, 'CANCELAR', NOW(), p_usuario);
+  
+  DELETE FROM ingressos WHERE sessao_id = p_sessao_id;
+  DELETE FROM sessoes WHERE sessao_id = p_sessao_id;
+END;
+$$ LANGUAGE plpgsql;
+```-->
+
+
+
