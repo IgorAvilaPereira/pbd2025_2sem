@@ -49,6 +49,7 @@
 [Baixar Material da Aula](https://download-directory.github.io/?url=http://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/01_introducao)
 [stored_procedure.pdf](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./01_introducao/stored_procedure.pdf) <br>
 ## [./2_lista_sql](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./2_lista_sql) <br>
+[cinema_proposta_de_refatoracao.png](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./2_lista_sql/cinema_proposta_de_refatoracao.png) <br>
 [lista1_.md](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./2_lista_sql/lista1_.md) <br>
 [Baixar todo o material da aula](https://download-directory.github.io/?url=http://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/2_lista_sql)
 &nbsp;
