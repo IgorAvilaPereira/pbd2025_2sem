@@ -14,6 +14,8 @@
 ## [./01_introducao](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./01_introducao) <br>
 [cinema.dia](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./01_introducao/cinema.dia) <br>
 [cinema.sql](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./01_introducao/cinema.sql) <br>
+[etapas.png](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./01_introducao/etapas.png) <br>
+[mapamental.png](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./01_introducao/mapamental.png) <br>
 
 ### Propostas
 
