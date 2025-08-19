@@ -165,14 +165,17 @@ SELECT poltrona.id
 
 -- 12) SELECT sessao.id, filme.titulo, cast(avg(ingresso.valor) as money) FROM ingresso inner join sessao on sessao.id = ingresso.sessao_id inner join filme on filme.id = sessao.filme_id group by sessao.id, filme.id; 
 
-CREATE OR REPLACE FUNCTION retorna_media(filme_id_aux integer) RETURNS TABLE 
+DROP FUNCTION retorna_media;
+
+CREATE OR REPLACE FUNCTION retorna_media(filme_id_aux bigint) RETURNS TABLE 
     (sessao_id int, filme_titulo text, media money) AS
 $$
 BEGIN
+    
     IF (filme_id_aux IN (SELECT id FROM filme)) THEN
         RETURN QUERY SELECT sessao.id, filme.titulo, cast(avg(ingresso.valor) as money) FROM ingresso inner join sessao on sessao.id = ingresso.sessao_id inner join filme on filme.id = sessao.filme_id WHERE filme.id = filme_id_aux group by sessao.id, filme.id;  
     ELSE
-        
+        RAISE NOTICE 'Deu xabum!';
     END IF;
 END;
 $$ LANGUAGE 'plpgsql';
