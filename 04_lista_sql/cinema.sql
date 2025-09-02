@@ -165,8 +165,7 @@ SELECT poltrona.id
 
 -- 12) SELECT sessao.id, filme.titulo, cast(avg(ingresso.valor) as money) FROM ingresso inner join sessao on sessao.id = ingresso.sessao_id inner join filme on filme.id = sessao.filme_id group by sessao.id, filme.id; 
 
-DROP FUNCTION retorna_media;
-
+-- DROP FUNCTION retorna_media;
 CREATE OR REPLACE FUNCTION retorna_media(filme_id_aux bigint) RETURNS TABLE 
     (sessao_id int, filme_titulo text, media money) AS
 $$
@@ -183,7 +182,7 @@ $$ LANGUAGE 'plpgsql';
 -- 13) jump
 
 -- 14)
-DROP FUNCTION qtde_filmes_por_genero();
+--DROP FUNCTION qtde_filmes_por_genero();
 CREATE OR REPLACE FUNCTION qtde_filmes_por_genero() RETURNS TABLE (genero_id INT, genero_nome character varying(100), qtde bigint) AS
 $$
 BEGIN
@@ -207,7 +206,7 @@ SELECT sala.id, count(*) as qtde from sala join sessao on (sala.id = sessao.sala
 -- 17 - 20)  jump
 
 -- 1) stored procedure
-DROP FUNCTION adicionar_filme(text, integer, character varying(2), text);
+-- DROP FUNCTION adicionar_filme(text, integer, character varying(2), text);
 CREATE OR REPLACE FUNCTION adicionar_filme(titulo_aux text, duracao_aux integer, classificacao_aux character varying(2), sinopse_aux text) RETURNS BOOLEAN AS
 $$
 DECLARE
@@ -237,6 +236,17 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 
+CREATE OR REPLACE FUNCTION isnumeric(text) RETURNS BOOLEAN AS $$
+DECLARE 
+    x NUMERIC;
+BEGIN
+    x = $1::NUMERIC;
+    RETURN TRUE;
+EXCEPTION WHEN others THEN
+    RETURN FALSE;
+END;
+$$ LANGUAGE plpgsql IMMUTABLE;
+
 --drop function valida_cpf(character varying);
 CREATE OR REPLACE FUNCTION valida_cpf(cpf character(11)) RETURNS BOOLEAN as $$
 DECLARE
@@ -249,8 +259,12 @@ DECLARE
     resto2 integer := 0;
     digito2 integer := 0;
 BEGIN
-	IF cpf = REPEAT('1', 11) OR cpf = REPEAT('2', 11) THEN
-			RETURN FALSE;
+    IF (isnumeric(cpf) is FALSE) THEN
+        RETURN FALSE;
+    END IF;
+
+	IF cpf = REPEAT('1', 11) OR cpf = REPEAT('2', 11) OR cpf = REPEAT('3', 11) OR cpf = REPEAT('4', 11) OR cpf = REPEAT('5', 11) OR cpf = REPEAT('6', 11) OR cpf = REPEAT('7', 11) OR cpf = REPEAT('8', 11) OR cpf = REPEAT('9', 11) OR cpf = REPEAT('0', 11) THEN
+		RETURN FALSE;
 	END IF;	
 	
 	i := 1;
@@ -292,6 +306,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 select valida_cpf('11111111111');
+select valida_cpf('17658586072');
+select valida_cpf('1SDFSDFSDFF');
 
 
 
