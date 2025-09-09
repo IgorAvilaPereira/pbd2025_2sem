@@ -12,6 +12,8 @@
 
 * [Playlist com vídeos sobre JDBC, DAO e ORM](https://youtube.com/playlist?list=PLvT8P1q6jMWf_Epq_VhCgupInovZGdSZ-&si=YWavfUkW4eWIn3U6)
 
+* [Correção de Exercícios - Lista de Functions PL/pgSQL](https://www.youtube.com/watch?v=ORzJMIayu8E)
+
 ***
 
 * [**PostgreSQL - Como Programar - DesCOMPlica, Oliba!**](https://www.youtube.com/playlist?list=PLHCyLhqWSaHDHOCJycIf4FHSU6-IMCxuN)
