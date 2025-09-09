@@ -68,3 +68,4 @@
 [cinema.sql](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./05_lista_sql/cinema.sql) <br>
 <br><br>[Baixar todo o material da aula](https://download-directory.github.io/?url=http://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/05_lista_sql) <br><br>
 &nbsp;
+[trabalho1.md](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./05_lista_sql/trabalho1.md) <br>
