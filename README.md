@@ -83,3 +83,7 @@ Obs: Além do video completo sobre Javalin, no meio do vídeo da aula sobre o pa
 <br><br>[Baixar todo o material da aula](https://download-directory.github.io/?url=http://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/06_lista1_trabalho) <br><br>
 &nbsp;
 [cinema](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./06_lista1_trabalho/cinema) <br>
+## [./07_cinema_javalin_js](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./07_cinema_javalin_js) <br>
+[html.png](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./07_cinema_javalin_js/html.png) <br>
+[javalin.png](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./07_cinema_javalin_js/javalin.png) <br>
+[js.png](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./07_cinema_javalin_js/js.png) <br>
