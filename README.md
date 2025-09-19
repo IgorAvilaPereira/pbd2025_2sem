@@ -87,3 +87,6 @@ Obs: Além do video completo sobre Javalin, no meio do vídeo da aula sobre o pa
 [html.png](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./07_cinema_javalin_js/html.png) <br>
 [javalin.png](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./07_cinema_javalin_js/javalin.png) <br>
 [js.png](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./07_cinema_javalin_js/js.png) <br>
+Vamos adicionar Javalin ao Trabalho?
+
+
