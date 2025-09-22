@@ -30,7 +30,7 @@ A função deverá:
 
 * Receber `id_sessao` e percentual de ocupação
 * Verificar se há poltronas suficientes
-* Inserir "ingressos simulados" em uma **tabela temporária**
+* Inserir "ingressos simulados" em uma **tabela** (pode ser normal ou temporária)
 * Retornar o número de poltronas que seriam ocupadas
 
 ---
