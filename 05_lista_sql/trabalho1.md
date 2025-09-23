@@ -1,5 +1,15 @@
 # Trabalho 1
 
+## Valor e Data de Entrega 
+
+* Trabalho 1 valerá 6 pontos 
+
+* E terá uma semana a mais (já ajustada no SIGAA) já que aumentamos os requisitos
+
+## Descrição: 
+
+* Funcionalidades exigidas abaixo + incorporar estas funcionalidades ao sistema javalin que estamos desenvolvendo em aula.
+
 Baseado no nosso banco de cinema, implemente:
 
 ### ✅ Relatório de clientes frequentes com média de gasto
