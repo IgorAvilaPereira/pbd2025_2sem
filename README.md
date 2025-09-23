@@ -90,3 +90,4 @@ Obs: Além do video completo sobre Javalin, no meio do vídeo da aula sobre o pa
 Vamos adicionar Javalin ao Trabalho?
 
 
+[cinema](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./07_cinema_javalin_js/cinema) <br>
