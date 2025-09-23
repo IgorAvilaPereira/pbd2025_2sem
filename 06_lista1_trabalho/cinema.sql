@@ -168,6 +168,13 @@ INSERT INTO poltrona (fileira, posicao, tipo, sala_id) VALUES
 ('A', 5, 'simples', 1);
 
 INSERT INTO poltrona (fileira, posicao, tipo, sala_id) VALUES
+('A', 1, 'simples', 3),
+('A', 2, 'simples', 3),
+('A', 3, 'simples', 3),
+('A', 4, 'luxo', 3),
+('A', 5, 'simples', 3);
+
+INSERT INTO poltrona (fileira, posicao, tipo, sala_id) VALUES
 ('A', 1, 'simples', 2);
 
 INSERT INTO poltrona (fileira, posicao, tipo, sala_id) VALUES
