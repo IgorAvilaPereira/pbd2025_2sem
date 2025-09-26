@@ -92,5 +92,15 @@ Vamos adicionar Javalin ao Trabalho?
 
 [cinema](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./07_cinema_javalin_js/cinema) <br>
 ## [./08_revisao_atividade1](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./08_revisao_atividade1) <br>
+Revisão
+
+* Functions
+
+* Procedure
+
+* Java/Javalin/JS/Mustache/JDBC
+
+* Lista 2
+
 <br><br>[Baixar todo o material da aula](https://download-directory.github.io/?url=http://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/08_revisao_atividade1) <br><br>
 &nbsp;
