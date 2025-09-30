@@ -449,4 +449,61 @@ BEGIN
 END;
 $$ language 'plpgsql';
 
+CREATE OR REPLACE FUNCTION ingressos_por_cpf() RETURNS 
+	TABLE (cpf_aux ingresso.cpf%TYPE, qtde_aux BIGINT) AS
+$$
+BEGIN
+	return query select cpf, COALESCE(count(ingresso.id), 0) as qtde from ingresso group by cpf;
+END;
+$$ LANGUAGE 'plpgsql';
 
+-- select cpf_aux, qtde_aux from ingressos_por_cpf() where qtde_aux > 3;
+CREATE OR REPLACE function media_ocupacao(integer) returns real as
+$$
+declare resultado real := 0;
+begin
+	SELECT count(ingresso.id)::real/(select count(*) from sessao)::real FROM sessao 
+	join ingresso on sessao.id = ingresso.sessao_id
+	join sala ON sala.id = sessao.sala_id WHERE sala.id = $1 
+	GROUP by sala.id into resultado;
+	IF NOT FOUND THEN
+		RETURN 0;
+	END IF;
+	return resultado;
+end;
+$$ language 'plpgsql';
+
+select media_ocupacao(2);
+
+
+CREATE OR REPLACE FUNCTION listar_filmes_com_mais_arrecadacao() RETURNS TABLE (filme_titulo_aux filme.titulo%type, arrecadado numeric(20,2))
+AS
+$$
+BEGIN
+	RETURN QUERY SELECT filme.titulo, COALESCE(sum(ingresso.valor), 0) from 
+		filme join sessao on filme.id = sessao.filme_id 
+		join ingresso on sessao.id = ingresso.sessao_id 
+	group by filme.id 
+	having COALESCE(sum(ingresso.valor), 0) = ( 
+		SELECT COALESCE(sum(ingresso.valor), 0) from 
+		filme join sessao on filme.id = sessao.filme_id 
+		join ingresso on sessao.id = ingresso.sessao_id 
+	group by filme.id order by COALESCE(sum(ingresso.valor), 0) desc limit 1
+	);
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT * FROM listar_filmes_com_mais_arrecadacao();
+
+
+create or replace procedure cadastrar_filme(titulo_aux filme.titulo%type, duracao_aux filme.duracao%type, classificacao_aux filme.classificacao_etaria%type)
+AS
+$$
+BEGIN
+	INSERT INTO filme (titulo, duracao, classificacao_etaria) VALUES(titulo_aux, duracao_aux, classificacao_aux);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CALL cadastrar_filme('sei la', 120, 'L');
+
+SELECT * FROM filme;
