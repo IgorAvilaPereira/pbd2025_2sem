@@ -17,7 +17,6 @@
 
 ## ⚙️ Procedures (10)
 
-1. **Cadastrar cliente** validando se CPF já existe.
 2. **Cadastrar novo filme** com título, ano, duração e classificação.
 3. **Inserir sessão** validando conflito de horários na sala.
 4. **Cancelar sessão** excluindo ingressos associados.
