@@ -23,6 +23,8 @@ Crie uma função que gere um relatório com os clientes que compraram ingressos
 * Total gasto
 * Valor médio gasto por ingresso
 
+  **Dica:**  para colocar o nome será preciso acrescentar uma nova tabela (para não infringir regras de normalização), e usar - ou não - o cpf como chave estrangeira (que já existe a coluna cpf na tabela de ingresso)
+
 ---
 
 ### ✅ Verificar sessões simultâneas para o mesmo filme
