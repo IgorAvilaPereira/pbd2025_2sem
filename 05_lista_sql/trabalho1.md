@@ -23,7 +23,9 @@ Crie uma função que gere um relatório com os clientes que compraram ingressos
 * Total gasto
 * Valor médio gasto por ingresso
 
-  **Dica:**  para colocar o nome será preciso acrescentar uma nova tabela (para não infringir regras de normalização), e usar - ou não - o cpf como chave estrangeira (coluna cpf já existe na tabela de ingresso - mas ainda não funciona como fk)
+  **Dica:**
+
+  * Para acrescentar o **_nome_** será preciso acrescentar uma nova Tabela de **Clientes** (para não infringir regras de normalização), e usar - ou não - o **_cpf_** como chave estrangeira (o **_cpf_** já existe na tabela de ingresso - mas ainda não funciona como FK - será preciso alterar o B.D para que esta coluna funcione como chave estrangeira)
 
 ---
 
