@@ -109,3 +109,7 @@ Java/Javalin/JS/Mustache/JDBC
 ## [./09_atividade1](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./09_atividade1) <br>
 <br><br>[Baixar todo o material da aula](https://download-directory.github.io/?url=http://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/09_atividade1) <br><br>
 &nbsp;
+## [./10_trigger](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./10_trigger) <br>
+<br><br>[Baixar todo o material da aula](https://download-directory.github.io/?url=http://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/10_trigger) <br><br>
+&nbsp;
+[trigger.pdf](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./10_trigger/trigger.pdf) <br>
