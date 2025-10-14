@@ -110,6 +110,7 @@ Java/Javalin/JS/Mustache/JDBC
 <br><br>[Baixar todo o material da aula](https://download-directory.github.io/?url=http://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/09_atividade1) <br><br>
 &nbsp;
 ## [./10_trigger](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./10_trigger) <br>
+[exemplo_trigger.sql](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./10_trigger/exemplo_trigger.sql) <br>
 Introdução a Triggers
 
 Lista 2 (Trigger)
@@ -120,3 +121,4 @@ Javalin
 &nbsp;
 [trigger.pdf](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./10_trigger/trigger.pdf) <br>
 [triggers_printscreen.pdf](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./10_trigger/triggers_printscreen.pdf) <br>
+[cinema](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./10_trigger/cinema) <br>
