@@ -41,5 +41,24 @@
 8. **Notificar tentativa de inserção de sessão duplicada** no mesmo horário/sala.
 9. **Gerar log de exclusão de ingresso** (auditoria de cancelamento).
 10. **Impedir alteração de CPF do cliente** após cadastrado.
-
-
+11. Claro! Aqui estão **mais 10 ideias de triggers** para complementar os exercícios que você já listou. Mantive no mesmo contexto (sistema de cinema, com vendas de ingressos, sessões, clientes etc.):
+12. **Calcular receita total da sessão após venda de ingresso**
+   • *Ao inserir um novo ingresso*, atualizar o valor total arrecadado na tabela `sessao`.
+13. **Registrar log de alteração de assento**
+   • *Ao atualizar um ingresso* com mudança de poltrona, gravar em `log_assento` o assento antigo e o novo.
+14. **Bloquear alteração de horário de sessão após o início da exibição**
+   • *Antes de atualizar a sessão*, verificar se a hora atual é maior ou igual ao horário da sessão.
+15. **Notificar tentativa de venda após o início da sessão**
+   • *Antes de inserir um ingresso*, verificar se a hora atual é maior que o horário da sessão; se for, impedir e registrar em `log_tentativa_venda`.
+16. **Registrar histórico de alteração de status da sessão (ativa, cancelada, encerrada)**
+   • *Ao atualizar a tabela `sessao`*, gravar no `log_status_sessao` o status antigo, o novo e a data da alteração.
+17. **Bloquear alteração de valor do ingresso após início da sessão**
+   • *Antes de atualizar preço*, impedir mudança caso a sessão já tenha começado.
+18. **Registrar data/hora de exclusão de sessão no log**
+   • *Ao excluir da tabela `sessao`*, gravar no `log_exclusao_sessao` informações sobre a sessão removida.
+19. **Bloquear exclusão de sala se houver sessões futuras agendadas**
+   • *Antes de excluir da tabela `sala`*, verificar se existem sessões futuras vinculadas.
+20. **Gerar log de tentativa de exclusão de ingresso pago**
+   • *Antes de excluir ingresso*, se o status for “pago”, bloquear exclusão e registrar tentativa em `log_tentativa_exclusao`.
+21. **Atualizar número de ingressos disponíveis da sessão ao cancelar um ingresso**
+    • *Ao excluir um ingresso*, incrementar a quantidade de assentos disponíveis na sessão correspondente.
