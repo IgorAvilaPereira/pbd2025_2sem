@@ -122,3 +122,6 @@ Javalin
 [trigger.pdf](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./10_trigger/trigger.pdf) <br>
 [triggers_printscreen.pdf](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./10_trigger/triggers_printscreen.pdf) <br>
 [cinema](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./10_trigger/cinema) <br>
+## [./11_trigger](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./11_trigger) <br>
+[*.*](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./11_trigger/*.*) <br>
+[cinema](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./11_trigger/cinema) <br>
