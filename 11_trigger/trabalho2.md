@@ -2,7 +2,7 @@
 
 ## Descrição do Trabalho
 
-O objetivo deste trabalho é expandir um sistema de cinema existente, implementando funcionalidades completas de *gerenciamento de filmes, salas, sessões e ingressos. O sistema deve ser desenvolvido em **Java, utilizando **Javalin* como framework web para criar uma *API REST, e **PostgreSQL* como banco de dados relacional.
+O objetivo deste trabalho é expandir um sistema de cinema existente, implementando funcionalidades completas de *gerenciamento de filmes, salas, sessões e ingressos. O sistema deve ser desenvolvido em **Java, utilizando **Javalin* como framework web para criar uma API REST, e PostgreSQL como banco de dados relacional.
 
 No banco de dados, deverão ser implementadas *funções, procedures e triggers* para automatizar regras de negócio e garantir a integridade dos dados. Por exemplo:
 
