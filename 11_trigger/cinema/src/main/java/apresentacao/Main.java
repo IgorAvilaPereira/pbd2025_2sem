@@ -13,10 +13,12 @@ import io.javalin.Javalin;
 import io.javalin.http.staticfiles.Location;
 import io.javalin.rendering.template.JavalinMustache;
 import negocio.Filme;
+import negocio.Ingresso;
 import negocio.Poltrona;
 import negocio.Sessao;
 import persistencia.ConexaoPostgreSQL;
 import persistencia.FilmeDAO;
+import persistencia.IngressoDAO;
 import persistencia.PoltronaDAO;
 import persistencia.SessaoDAO;
 
@@ -54,12 +56,21 @@ public class Main {
         });
 
         app.post("/venda_ingresso", ctx -> {
-            ctx.formParam("cpf");
+            String cpf = ctx.formParam("cpf");
             int poltrona_id = Integer.parseInt(ctx.formParam("poltrona_id"));
             int sessao_id = Integer.parseInt(ctx.formParam("sessao_id"));
-            //  Ingresso ingresso = new Ingresso();
-            // new IngressoDAO().compra();
-            ctx.redirect("/");
+            Ingresso ingresso = new Ingresso();
+            ingresso.setCpf(cpf);
+            Poltrona poltrona = new PoltronaDAO().obter(poltrona_id);
+            ingresso.setPoltrona(poltrona);
+            Sessao sessao = new SessaoDAO().obter(sessao_id);
+            ingresso.setSessao(sessao);
+            boolean resposta = new IngressoDAO().salvar(ingresso);
+            // ctx.redirect("/");
+            // Map<String, Object> map = new HashMap();
+            // map.put("mensagem", resposta);
+            ctx.html("<script>alert('"+resposta+"');location.href='/';</script>");
+            // ctx.render("/templates/mensagem.html", map);
         });
         
         app.post("/busca_poltronas", ctx -> {

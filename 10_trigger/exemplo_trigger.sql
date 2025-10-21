@@ -2,6 +2,7 @@
 -- https://www.postgresql.org/docs/current/plpgsql-trigger.html
 
 drop trigger registra_log_venda_ingresso_trigger on ingresso;
+drop trigger registra_log_venda_ingresso_trigger2 on ingresso;
 drop function registra_log_venda_ingresso;
 
 create or replace function registra_log_venda_ingresso() RETURNS trigger as $$

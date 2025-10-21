@@ -40,4 +40,28 @@ public class SessaoDAO {
         return vetSessao;
     }
 
+    public Sessao obter(int sessao_id) throws SQLException {
+        Connection conexao = new ConexaoPostgreSQL().getConexao();
+        PreparedStatement instrucao = conexao.prepareStatement("select sessao.id, sessao.data, sessao.hora_inicio, sessao.hora_fim, filme.id as filme_id, filme.titulo as filme_titulo, sala.id as sala_id from sessao join filme on filme.id = sessao.filme_id join sala on sala.id = sessao.sala_id; ");
+        ResultSet rs = instrucao.executeQuery();
+        Sessao sessao = null;
+        if (rs.next()) {
+            sessao = new Sessao();
+            sessao.setId(rs.getInt("id"));
+            sessao.setData(rs.getTimestamp("data").toLocalDateTime().toLocalDate());
+            sessao.setHoraInicio(rs.getTime("hora_inicio").toLocalTime());
+            sessao.setHoraFim(rs.getTime("hora_fim").toLocalTime());            
+            Filme filme = new Filme();
+            filme.setId(rs.getInt("filme_id"));
+            filme.setTitulo(rs.getString("filme_titulo"));
+            sessao.setFilme(filme);
+            Sala sala = new Sala();
+            sala.setId(rs.getInt("sala_id"));
+            sessao.setSala(sala);            
+        }
+        instrucao.close();
+        conexao.close();
+        return sessao;
+    }
+
 }

@@ -18,17 +18,37 @@ public class PoltronaDAO {
         instrucao.setInt(1, sessaoId);
         ResultSet rs = instrucao.executeQuery();
         while(rs.next()){
-            Poltrona poltrona = new Poltrona();
-            poltrona.setId(rs.getInt("id"));
-            poltrona.setFileira(rs.getString("fileira").charAt(0));
-            poltrona.setPosicao(rs.getInt("posicao"));
-            poltrona.setTipo(rs.getString("tipo"));
+            Poltrona poltrona = mapper(rs);         
             vetPoltrona.add(poltrona);
         }
         instrucao.close();
         conexao.close();
         // System.out.println("aqui:"+vetPoltrona.size());
         return vetPoltrona;
+    }
+
+    private Poltrona mapper(ResultSet rs) throws SQLException {
+        Poltrona poltrona = new Poltrona();
+        poltrona.setId(rs.getInt("id"));
+        poltrona.setFileira(rs.getString("fileira").charAt(0));
+        poltrona.setPosicao(rs.getInt("posicao"));
+        poltrona.setTipo(rs.getString("tipo"));
+        return poltrona;
+    }
+
+    public Poltrona obter(int id) throws SQLException {
+         Connection conexao = new ConexaoPostgreSQL().getConexao();
+        PreparedStatement instrucao = conexao.prepareStatement("SELECT * FROM poltrona where id = ?;");
+        instrucao.setInt(1, id);
+        ResultSet rs = instrucao.executeQuery();
+        Poltrona poltrona = null;
+        if(rs.next()){
+            poltrona = mapper(rs); 
+        }
+        instrucao.close();
+        conexao.close();
+        if (poltrona != null) return poltrona;
+        return null;
     }
 
 }
