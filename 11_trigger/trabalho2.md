@@ -23,7 +23,7 @@ O sistema permitirá que administradores e operadores:
 1. Modelar e implementar o banco de dados para armazenar informações de filmes, salas, sessões e ingressos.
 2. Criar *funções* e *procedures* para automatizar operações críticas, como vendas de ingressos e cálculo de lotação.
 3. Implementar *triggers* que garantam integridade e consistência nos dados, prevenindo erros e duplicidades.
-4. Desenvolver uma *API REST com Java e Javalin* para permitir interação com o sistema de cinema.
+4. Desenvolver uma API REST com Java e Javalin para permitir interação com o sistema de cinema.
 5. Integrar chamadas a funções e procedures do PostgreSQL a partir do backend Java.
 
 ---
