@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        async function hello(elemento) {
+            try {
+                const response = await fetch("/busca_poltronas", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ "sessao_id": elemento.value })
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                var vetPoltrona = await response.json();
+                document.getElementById("resultado").innerHTML = "";
+                // document.getElementById("resultado").innerHTML = "<ul>";
+                for (let index = 0; index < vetPoltrona.length; index++) {
+                    var poltrona = vetPoltrona[index];
+                    document.getElementById("resultado").innerHTML += "<input type='radio' name='poltrona_id' value='"+poltrona.id +"''>" + poltrona.fileira + "-"+ poltrona.posicao + "</li>";
+                }
+                // document.getElementById("resultado").innerHTML += "</ul>";
+                return;
+            } catch (error) {
+                console.error('Error during fetch:', error);
+                throw error; // Re-throw the error for external handling
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Venda de Ingresso</h1>
+    <h2>Sessões Disponíveis</h2>
+    <form action="/venda_ingresso" method="post">
+        Cpf: <input type="text" name="cpf"> <br>
+        <select name="sessao_id" onchange="hello(this)">
+            <option value="0">--</option>
+            {{#vetSessao}}
+            <option value="{{id}}">{{dataFormatada}} {{horaInicio}} - {{filme.titulo}} - Sala {{sala.id}} </option>
+            {{/vetSessao}}
+        </select>
+        <div id="resultado"> </div>
+        <input type="submit" value="Efetivar Venda">
+    </form>
+</body>
+
+</html>
