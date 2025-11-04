@@ -133,3 +133,6 @@ Javalin
 &nbsp;
 [sql.sql](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./12_continuacao_lista2/sql.sql) <br>
 [cinema](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./12_continuacao_lista2/cinema) <br>
+## [./13_javalin](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./13_javalin) <br>
+[*.*](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./13_javalin/*.*) <br>
+[cinema](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./13_javalin/cinema) <br>
