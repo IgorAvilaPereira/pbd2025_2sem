@@ -136,3 +136,8 @@ Javalin
 ## [./13_javalin](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./13_javalin) <br>
 [*.*](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./13_javalin/*.*) <br>
 [cinema](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./13_javalin/cinema) <br>
+## [./14_terminar_lista](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./14_terminar_lista) <br>
+Terminar Lista 
+## [./15_integrar_lista_ao_projeto_java](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./15_integrar_lista_ao_projeto_java) <br>
+Javalin + Triggers## [./16_atendimento_trabalho2](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./16_atendimento_trabalho2) <br>
+Atendimento Trabalho 2
