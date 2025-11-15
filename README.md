@@ -141,5 +141,9 @@ Javalin
 Terminar Lista 
 [cinema](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./14_terminar_lista/cinema) <br>
 ## [./15_integrar_lista_ao_projeto_java](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./15_integrar_lista_ao_projeto_java) <br>
-Javalin + Triggers## [./16_atendimento_trabalho2](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./16_atendimento_trabalho2) <br>
+Javalin + Triggers
+
+
+
+## [./16_atendimento_trabalho2](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./16_atendimento_trabalho2) <br>
 Atendimento Trabalho 2
