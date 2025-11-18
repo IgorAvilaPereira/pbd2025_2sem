@@ -145,6 +145,7 @@ Terminar Lista
 [cinema.sql](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./15_integrar_lista_ao_projeto_java/cinema.sql) <br>
 Javalin + Triggers
 
+[Lista 2](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/06_lista1_trabalho/lista2.md#%EF%B8%8F-triggers-10)
 
 
 ## [./16_atendimento_trabalho2](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./16_atendimento_trabalho2) <br>
