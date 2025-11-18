@@ -142,6 +142,7 @@ Terminar Lista
 [cinema](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./14_terminar_lista/cinema) <br>
 ## [./15_integrar_lista_ao_projeto_java](https://github.com/IgorAvilaPereira/pbd2025_2sem/tree/main/./15_integrar_lista_ao_projeto_java) <br>
 [aula171125.sql](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./15_integrar_lista_ao_projeto_java/aula171125.sql) <br>
+[cinema.sql](https://github.com/IgorAvilaPereira/pbd2025_2sem/blob/main/./15_integrar_lista_ao_projeto_java/cinema.sql) <br>
 Javalin + Triggers
 
 
